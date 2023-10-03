@@ -7,15 +7,13 @@ import (
 )
 
 func execute() {
-
 	// here we perform the pwd command.
 	// we can store the output of this in our out variable
 	// and catch any errors in err
-    fmt.Println("************************************") 
+	fmt.Println("************************************")
 
-    fmt.Print("IP INFO") 
+	fmt.Print("IP INFO")
 	out, err := exec.Command("curl", "https://ipecho.net/plain").Output()
-
 	// if there is an error with our execution
 	// handle it here
 	if err != nil {
@@ -26,7 +24,7 @@ func execute() {
 	// this is how we convert it to a string
 	fmt.Print("\nPublic IP: ")
 	output := string(out[:])
-	fmt.Print(output+"\n")
+	fmt.Print(output + "\n")
 
 	// let's try the pwd command herer
 	out, err = exec.Command("ipconfig", "getifaddr", "en0").Output()
@@ -36,9 +34,9 @@ func execute() {
 	fmt.Print("Private IP: ")
 	output = string(out[:])
 	fmt.Print(output)
-    fmt.Print("------------------------------------\n") 
-    fmt.Print("AWS CLI ACCOUNT\n") 
-	out2, err2 := exec.Command("aws","sts","get-caller-identity").Output()
+	fmt.Print("------------------------------------\n")
+	fmt.Print("AWS CLI ACCOUNT\n")
+	out2, err2 := exec.Command("aws", "sts", "get-caller-identity").Output()
 
 	// if there is an error with our execution
 	// handle it here
@@ -46,91 +44,156 @@ func execute() {
 		fmt.Printf("%s", err2)
 	}
 
-    output2 := string(out2[:])
+	output2 := string(out2[:])
 	fmt.Print(output2)
 
-    fmt.Print("------------------------------------\n") 
-    fmt.Print("VERSION CHECKS\n")
+	fmt.Print("------------------------------------\n")
+	fmt.Print("VERSION CHECKS\n")
 
-    out3, err3 := exec.Command("go","version").Output()
-    // if there is an error with our execution
+	out3, err3 := exec.Command("go", "version").Output()
+	// if there is an error with our execution
 	// handle it here
 	if err3 != nil {
 		fmt.Printf("%s", err3)
-    }
+	}
 
-    fmt.Print("GO:") 
-    output2 = string(out3[:])
+	fmt.Print("GO:")
+	output2 = string(out3[:])
 	fmt.Print(output2)
 
-    out3, err3 = exec.Command("node","--version").Output()
-    // if there is an error with our execution
+	out3, err3 = exec.Command("node", "--version").Output()
+	// if there is an error with our execution
 	// handle it here
 	if err3 != nil {
 		fmt.Printf("%s", err3)
-    }
+	}
 
-    fmt.Print("NODE:") 
-    output2 = string(out3[:])
+	fmt.Print("NODE:")
+	output2 = string(out3[:])
 	fmt.Print(output2)
-    
-    out3, err3 = exec.Command("npm","--version").Output()
-    // if there is an error with our execution
+
+	out3, err3 = exec.Command("npm", "--version").Output()
+	// if there is an error with our execution
 	// handle it here
 	if err3 != nil {
 		fmt.Printf("%s", err3)
-    }
+	}
 
-    fmt.Print("NPM:") 
-    output2 = string(out3[:])
+	fmt.Print("NPM:")
+	output2 = string(out3[:])
 	fmt.Print(output2)
 
-    out3, err3 = exec.Command("python3","--version").Output()
-    // if there is an error with our execution
+	out3, err3 = exec.Command("python3", "--version").Output()
+	// if there is an error with our execution
 	// handle it here
 	if err3 != nil {
 		fmt.Printf("%s", err3)
-    }
+	}
 
-    fmt.Print("PYTHON3:") 
-    output2 = string(out3[:])
+	fmt.Print("PYTHON3:")
+	output2 = string(out3[:])
 	fmt.Print(output2)
 
-
-    out3, err3 = exec.Command("g++","--version").Output()
-    // if there is an error with our execution
+	out3, err3 = exec.Command("rustc", "--version").Output()
+	// if there is an error with our execution
 	// handle it here
 	if err3 != nil {
 		fmt.Printf("%s", err3)
-    }
+	}
 
-    fmt.Print("\nC++:\n") 
-    output2 = string(out3[:])
+	fmt.Print("RUST:")
+	output2 = string(out3[:])
 	fmt.Print(output2)
 
-    out3, err3 = exec.Command("swift","--version").Output()
-    // if there is an error with our execution
+	out3, err3 = exec.Command("ghc", "--version").Output()
+	// if there is an error with our execution
 	// handle it here
 	if err3 != nil {
 		fmt.Printf("%s", err3)
-    }
+	}
 
-    fmt.Print("\nSWIFT:\n") 
-    output2 = string(out3[:])
+	fmt.Print("HASKELL:")
+	output2 = string(out3[:])
 	fmt.Print(output2)
 
-
-    out3, err3 = exec.Command("java","--version").Output()
-    // if there is an error with our execution
+	out3, err3 = exec.Command("dotnet", "--version").Output()
+	// if there is an error with our execution
 	// handle it here
 	if err3 != nil {
 		fmt.Printf("%s", err3)
-    }
+	}
 
-    fmt.Print("\nJava:\n") 
-    output2 = string(out3[:])
+	fmt.Print("DOTNET:")
+	output2 = string(out3[:])
 	fmt.Print(output2)
-    fmt.Print("************************************\n") 
+
+	out3, err3 = exec.Command("ruby", "-v").Output()
+	// if there is an error with our execution
+	// handle it here
+	if err3 != nil {
+		fmt.Printf("%s", err3)
+	}
+
+	fmt.Print("RUBY:")
+	output2 = string(out3[:])
+	fmt.Print(output2)
+
+	out3, err3 = exec.Command("g++", "--version").Output()
+	// if there is an error with our execution
+	// handle it here
+	if err3 != nil {
+		fmt.Printf("%s", err3)
+	}
+
+	fmt.Print("\nC++:\n")
+	output2 = string(out3[:])
+	fmt.Print(output2)
+
+	out3, err3 = exec.Command("swift", "--version").Output()
+	// if there is an error with our execution
+	// handle it here
+	if err3 != nil {
+		fmt.Printf("%s", err3)
+	}
+
+	fmt.Print("\nSWIFT:\n")
+	output2 = string(out3[:])
+	fmt.Print(output2)
+
+	out3, err3 = exec.Command("java", "--version").Output()
+	// if there is an error with our execution
+	// handle it here
+	if err3 != nil {
+		fmt.Printf("%s", err3)
+	}
+
+	fmt.Print("\nJAVA:\n")
+	output2 = string(out3[:])
+	fmt.Print(output2)
+	fmt.Print("************************************\n")
+	fmt.Print("KUBERNETES CHECKS\n")
+
+	out3, err3 = exec.Command("kubectl", "version", "--short").Output()
+	// if there is an error with our execution
+	// handle it here
+	if err3 != nil {
+		fmt.Printf("%s", err3)
+	}
+
+	fmt.Print("\nKUBECTL VERSION:\n")
+	output2 = string(out3[:])
+	fmt.Print(output2)
+	out3, err3 = exec.Command("kubectl", "config", "current-context").Output()
+	// if there is an error with our execution
+	// handle it here
+	if err3 != nil {
+		fmt.Printf("%s", err3)
+	}
+
+	fmt.Print("\nKUBERNETES CONTEXT:\n")
+	output2 = string(out3[:])
+	fmt.Print(output2)
+	fmt.Print("************************************\n")
 }
 
 func main() {
